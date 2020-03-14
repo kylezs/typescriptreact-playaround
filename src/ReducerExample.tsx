@@ -1,4 +1,4 @@
-import React, { useRef, useReducer } from 'react';
+import React, { useReducer } from 'react';
 
 type Actions =
     | { type: "add"; text: string }
@@ -32,14 +32,20 @@ interface Props {
 export const ReducerExample: React.FC<Props> = ({ todoText }) => {
     const [todos, dispatch] = useReducer(TodoReducer, []);
 
+    const itemStyle = {
+        border: '2px solid',
+        borderRadius: '3px',
+        padding: 2,
+    }
+
     return (
         <div>
             {(todos).map((todo, i) => {
                 return (
-                    <div key={i}>
+                    <div key={i} style={itemStyle}>
                         <p>{todo.text}</p>
                         <input
-                            onClick={() => {
+                            onChange={() => {
                                 dispatch({ type: "remove", idx: i });
                             }}
                             type="radio"

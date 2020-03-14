@@ -7,8 +7,13 @@ import { ReducerExample } from './ReducerExample';
 function App() {
 
   const [inputText, setInputText] = useState<string>("");
+
+  const style = {
+    padding: "40px",
+  }
   return (
-    <div>
+    <div style={style}>
+      <h1>A Typescript React Demo</h1>
       <TextField
         text={'hello'}
         person={{ firstName: "kyle", lastName: "zsembery" }}
@@ -20,6 +25,7 @@ function App() {
           }
         } />
       <h1>{inputText}</h1>
+      <h2>A highly original and creative counter</h2>
       <Counter>
         {({ count, setCount }) => (
           <div>
